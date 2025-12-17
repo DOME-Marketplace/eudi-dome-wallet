@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.inetum.eudi_dome_wallet.ui.common.models.EudiPresentationRequestHeaderItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvRequiredOrOptionalHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/blinker_bold"
+            android:text="@{model.requiredOrOptionalTitle}"
+            android:textSize="16sp"
+            android:visibility="@{model.requiredOrOptionalTitle.empty ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Datos obligatorios" />
+
+
+        <TextView
+            android:id="@+id/tvHeaderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_header_title"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxEms="18"
+            android:maxLines="1"
+            android:paddingVertical="3dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="25dp"
+            android:singleLine="true"
+            android:text="@{model.credentialDataRequestedShowName}"
+            android:textColor="@color/primary_color_white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRequiredOrOptionalHeader"
+            tools:text="TITULO" />
+
+        <FrameLayout
+            android:id="@+id/prHeaderSeparator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/underline_gray"
+            app:layout_constraintBottom_toTopOf="@+id/clPresentationRequestCredentialSelectionItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeaderName" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clPresentationRequestCredentialSelectionItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeaderName">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clPresentationRequestCredentialSelectionItemNoData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <include
+                    android:id="@+id/includePresentationRequestCredentialSelectionItemNoData"
+                    layout="@layout/presentation_request_credential_selection_item_eudi_no_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clPresentationRequestCredentialSelectionItemData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <include
+                    android:id="@+id/includePresentationRequestCredentialSelectionItem"
+                    layout="@layout/item_eudi_credential_available_in_presentation_request_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:model="@{model.prefOrDefaultItem}" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/llExtraItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="@{model.vcExtraItems.empty ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clPresentationRequestCredentialSelectionItem">
+
+            <TextView
+                android:id="@id/tvExtraItemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/blinker_bold"
+                android:hint="ExtraItemTitle" />
+
+            <ImageView
+                android:id="@+id/ivExtraItem"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center|end"
+                android:layout_marginStart="4dp"
+                android:padding="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/icon_arrow_up"
+                app:tint="@color/primary_color_black" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExtraCredentials"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{model.vcExtraItems.empty ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llExtraItem"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_eudi_credential_available_in_presentation_request_header"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

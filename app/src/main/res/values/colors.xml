@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_color_black">#000000</color>
+    <color name="primary_color_white">#FFFFFF</color>
+    <color name="secondary_color_darkblue">#2D58A7</color>
+    <color name="secondary_color_skin">#FFB0A2</color>
+    <color name="secondary_color_blue">#00ADD3</color>
+    <color name="complementary_color_1">#DB546F</color>
+    <color name="complementary_color_2">#80DEC2</color>
+    <color name="complementary_color_3">#DDE6F6</color>
+    <color name="complementary_color_4">#DDDDDD</color>
+    <color name="complementary_color_5">#7A7A7A</color>
+    <color name="color_button_press">#18305A</color>
+    <color name="color_grey">#E4E4E4</color>
+    <color name="color_grey2">#DDDDDD</color>
+    <color name="color_grey_underline">#F2F2F1</color>
+    <color name="color_textfield">#F2F2F2</color>
+
+    <!-- CREDENTIALS STATUS -->
+    <color name="cred_status_validated">#baede1</color>
+    <color name="cred_status_validated_text">#155148</color>
+    <color name="cred_status_revoked">#f2bcc9</color>
+    <color name="cred_status_revoked_text">#4d0f20</color>
+    <color name="cred_status_blocked">#d7d7d7</color>
+    <color name="cred_status_blocked_text">#3b3b3b</color>
+    <color name="cred_status_askissuer">#ffcdc4</color>
+    <color name="cred_status_askissuer_text">#6b1200</color>
+    <color name="cred_status_registering">#6633ff</color>
+    <color name="cred_status_registering_text">#110042</color>
+
+    <!-- PRESENTATION STATUS -->
+    <color name="pres_status_sent">@color/cred_status_registering</color>
+    <color name="pres_status_sent_text">@color/cred_status_registering_text</color>
+    <color name="pres_status_accepted">@color/cred_status_validated</color>
+    <color name="pres_status_accepted_text">@color/cred_status_validated_text</color>
+    <color name="pres_status_pending_deletion">@color/cred_status_askissuer</color>
+    <color name="pres_status_pending_deletion_text">@color/cred_status_askissuer_text</color>
+    <color name="pres_status_deleted">@color/cred_status_revoked</color>
+    <color name="pres_status_deleted_text">@color/cred_status_revoked_text</color>
+
+    <color name="light_gray">#f7f7f7</color>
+    <color name="light_gray_alt">#f2f2f2</color>
+    <color name="dark_gray_2">#878787</color>
+    <color name="underline_gray">#3d5e5e5e</color>
+</resources>

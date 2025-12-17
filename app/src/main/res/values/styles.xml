@@ -1,0 +1,98 @@
+<resources>
+
+    <style name="EudiTextViewStyleP1" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/blinker</item>
+        <item name="android:textColor">@color/primary_color_black</item>
+    </style>
+
+    <style name="EudiButtonStyleEnabled" parent="Widget.AppCompat.Button">
+        <item name="android:fontFamily">@font/blinker</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@xml/bg_button_selector</item>
+        <item name="android:textColor">@xml/button_text_color_selector</item>
+    </style>
+
+    <style name="EudiButtonWhiteStyleEnabled" parent="Widget.AppCompat.Button">
+        <item name="android:fontFamily">@font/blinker</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@xml/bg_button_white_selector</item>
+        <item name="android:textColor">@xml/button_white_text_color_selector</item>
+    </style>
+
+    <style name="EudiTextInputStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/text_input_shape</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="android:textCursorDrawable">@drawable/text_cursor</item>
+    </style>
+
+    <style name="EudiToggleButtonStyle" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:textOff">""</item>
+        <item name="android:textOn">""</item>
+        <item name="android:background">@drawable/toggle_button_selector</item>
+    </style>
+
+    <style name="EudiSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_color_black</item>
+        <item name="android:textColorHint">@color/primary_color_black</item>
+        <item name="android:textCursorDrawable">@drawable/text_cursor</item>
+    </style>
+
+    <style name="EudiRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@null</item>
+        <item name="android:drawableRight">@drawable/radiobutton_bg_selector</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/primary_color_black</item>
+    </style>
+
+    <style name="PopupStyle" parent="Theme.AppCompat.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="materialButtonStyle">@style/EudiButtonStyleEnabled</item>
+    </style>
+
+    <style name="TIL_HintText" parent="@android:style/TextAppearance">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="HelperText" parent="@android:style/TextAppearance">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="EudiTILStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="errorEnabled">true</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="errorTextColor">@color/complementary_color_1</item>
+        <item name="hintTextColor">@color/primary_color_black</item>
+    </style>
+
+    <style name="EudiCustomRadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/custom_radiobutton_selector</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- region Notifications nav bar -->
+
+    <style name="AccentActionBarDark" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/color_grey</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/primary_color_black</item>
+    </style>
+
+    <style name="NavigationTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@color/color_grey</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- endregion Notifications nav bar -->
+
+
+</resources>

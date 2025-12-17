@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.register.RegisterStep1Activity">
+
+  <data>
+    <import type="android.view.View"/>
+    <variable
+        name="viewModel"
+        type="com.inetum.eudi_dome_wallet.ui.register.RegisterStep1ViewModel" />
+  </data>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fitsSystemWindows="true"
+      android:focusable="true"
+      android:fillViewport="true"
+      android:focusableInTouchMode="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+      <FrameLayout
+          android:id="@+id/frameLayout10"
+          android:layout_width="0dp"
+          android:layout_height="1dp"
+          android:layout_marginTop="8dp"
+          android:background="@color/color_grey2"
+          app:layout_constraintEnd_toEndOf="@+id/til_RegisterPwd"
+          app:layout_constraintStart_toStartOf="@+id/til_RegisterPwd"
+          app:layout_constraintTop_toBottomOf="@+id/til_RegisterPwd">
+
+      </FrameLayout>
+
+      <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline15"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          app:layout_constraintGuide_percent="0.25" />
+
+      <ImageView
+          android:id="@+id/imageView11"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          app:layout_constraintBottom_toTopOf="@+id/guideline15"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:srcCompat="@drawable/logo_mio_register" />
+
+      <TextView
+          android:id="@+id/textView3"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="24dp"
+          android:text="@string/register_step1_title"
+          android:textAlignment="viewStart"
+          android:textSize="16sp"
+          android:textStyle="bold"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/guideline15" />
+
+
+      <TextView
+          android:id="@+id/textView55"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="24dp"
+          android:text="@string/register_warning_password"
+          android:textAlignment="viewStart"
+          android:textSize="15sp"
+          android:textStyle="bold"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/textView56"
+          app:layout_constraintTop_toTopOf="@+id/textView56" />
+
+      <TextView
+          android:id="@+id/textView56"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="24dp"
+          android:text="*"
+          android:textAlignment="viewStart"
+          android:textSize="14sp"
+          android:textStyle="bold"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/til_RegisterPwd2" />
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/til_RegisterPwd"
+          style="@style/EudiTILStyle"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="24dp"
+          android:hint="@string/register_form_pwd_hint"
+          app:endIconMode="password_toggle"
+          app:errorIconDrawable="@null"
+          app:errorTextAppearance="@style/HelperText"
+          app:helperTextEnabled="true"
+          app:helperTextTextAppearance="@style/HelperText"
+          app:helperTextTextColor="@android:color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_RegisterPwd"
+            style="@style/EudiTextInputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:text="@={viewModel.unlockPin}"
+            android:textColor="@android:color/black" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/til_RegisterPwd2"
+          style="@style/EudiTILStyle"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="26dp"
+          android:layout_marginEnd="24dp"
+          android:hint="@string/register_form_pwd_hint2"
+          app:endIconMode="password_toggle"
+          app:errorIconDrawable="@null"
+          app:errorTextAppearance="@style/HelperText"
+          app:helperTextEnabled="true"
+          app:helperTextTextAppearance="@style/HelperText"
+          app:helperTextTextColor="@android:color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/frameLayout10">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_RegisterPwd2"
+            style="@style/EudiTextInputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:text="@={viewModel.unlockPinConfirm}"
+            android:textColor="@android:color/black" />
+
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <Button
+          android:id="@+id/button2"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginEnd="32dp"
+          android:layout_marginBottom="32dp"
+          android:onClick="@{()->viewModel.onClickNextStep()}"
+          android:text="@string/register_step1_continue_button"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>
+</layout>

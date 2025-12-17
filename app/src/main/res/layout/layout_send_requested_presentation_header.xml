@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.credentials.CredentialsActivity">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.inetum.eudi_dome_wallet.ui.dataExchange.fragment.SendRequestedPresentationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clHeaderTitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvPresentationActionDescription">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="16dp"
+                android:onClick="onClickBack"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="TouchTargetSizeCheck">
+
+                <include
+                    android:id="@+id/includeLayoutBackButton"
+                    layout="@layout/layout_back_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/ivLogoApp"
+                android:layout_width="65dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/clBackButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:srcCompat="@drawable/logo_svg" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvPresentationActionDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="26dp"
+            android:text="@{viewModel.descriptionText}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/presentation_request_asks_x_eudi"/>
+
+        <TextView
+            android:id="@+id/tvPresentationActionPurpose"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{viewModel.presentationPurposeTxt}"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="@{viewModel.presentationPurposeTxt.empty ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="@+id/tvPresentationActionDescription"
+            app:layout_constraintStart_toStartOf="@+id/tvPresentationActionDescription"
+            app:layout_constraintTop_toBottomOf="@+id/tvPresentationActionDescription"
+            tools:text="> Proposito de la Presentation Request" />
+
+
+        <TextView
+            android:id="@+id/tvPresentationActionPurposeInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@string/presentation_request_choose_data_eudi"
+            android:textSize="14sp"
+            android:visibility="@{viewModel.presentationPurposeTxt.empty ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="@+id/tvPresentationActionPurpose"
+            app:layout_constraintStart_toStartOf="@+id/tvPresentationActionPurpose"
+            app:layout_constraintTop_toBottomOf="@+id/tvPresentationActionPurpose"/>
+
+
+        <LinearLayout
+            android:id="@+id/llWarningMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="26dp"
+            android:background="@drawable/rounded_rectangle_alert"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPresentationActionPurposeInfo">
+
+            <ImageView
+                android:id="@+id/ivWarningMessage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="14dp"
+                app:srcCompat="@drawable/icon_warning"
+                tools:srcCompat="@drawable/icon_warning" />
+
+            <TextView
+                android:id="@+id/tvWarningMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/blinker_bold"
+                android:gravity="center_vertical"
+                android:textColor="#6b1200"
+                android:textSize="12sp"
+                tools:text="Faltan X dato/s solicitados por la entidad" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llTermsAndConditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:onClick="onClickTerms"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/llWarningMessage"
+            app:layout_constraintStart_toStartOf="@+id/llWarningMessage"
+            app:layout_constraintTop_toBottomOf="@+id/llWarningMessage">
+
+            <TextView
+                android:id="@+id/tvTermsAndConditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/receive_cred_terms"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ivTermsAndConditions"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_margin="6dp"
+                app:srcCompat="@drawable/ic_external_arrow" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

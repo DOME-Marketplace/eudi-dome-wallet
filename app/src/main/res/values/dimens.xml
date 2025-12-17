@@ -1,0 +1,6 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="mtrl_textinput_box_stroke_width_default">0dp</dimen>
+    <dimen name="mtrl_textinput_box_stroke_width_focused">2dp</dimen>
+</resources>

@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FFF"/> <!-- Color de fondo cuando no está seleccionado -->
+    <stroke
+        android:width="2dp"
+    android:color="#000"/> <!-- Color del borde -->
+</shape>

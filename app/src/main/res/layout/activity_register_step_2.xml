@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <import type="android.view.View"/>
+    <variable
+        name="viewModel"
+        type="com.inetum.eudi_dome_wallet.ui.register.RegisterStep2ViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/clMain"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fitsSystemWindows="true"
+      tools:context=".ui.register.RegisterStep2Activity"
+      android:focusable="true"
+      android:focusableInTouchMode="true">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <ImageView
+        android:id="@+id/ivHeader"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_mio_register" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout10"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/color_grey2"
+        app:layout_constraintEnd_toEndOf="@+id/tilRegisterNick"
+        app:layout_constraintStart_toStartOf="@+id/tilRegisterNick"
+        app:layout_constraintTop_toBottomOf="@+id/tilRegisterNick">
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/ivFooter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:padding="-6dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+    <Button
+        android:id="@+id/btnFinish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="onClickFinish"
+        android:text="@string/register_step2_finalize_button"
+        android:visibility="visible"
+        app:iconGravity="textEnd"
+        app:iconPadding="12dp"
+        app:iconSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="onClickBack"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck">
+
+      <include
+          android:id="@+id/includeLayoutBackButton"
+          layout="@layout/layout_back_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <TextView
+        android:id="@+id/tvStepTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        android:text="@string/register_step2_title"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline16"
+        tools:ignore="RtlCompat" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRegisterNick"
+        style="@style/EudiTILStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/register_form_nick_hint"
+        app:helperTextTextAppearance="@style/HelperText"
+        app:helperTextTextColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvStepTitle">
+
+          <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/etRegisterNick"
+              style="@style/EudiTextInputStyle"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="textPersonName"
+              android:maxLength="15"
+              android:paddingStart="15dp"
+              android:paddingEnd="10dp"
+              android:text="@={viewModel.nick}"
+              android:textColor="@android:color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clLegalTerms"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout10">
+
+      <TextView
+          android:id="@+id/tvLegalTerms"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:autoSizeMaxTextSize="14sp"
+          android:autoSizeMinTextSize="10sp"
+          android:autoSizeTextType="uniform"
+          android:text="@string/register_opt_legalterms1"
+          android:textSize="12sp"
+          android:textStyle="bold"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/tvLegalTermsClickable"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="3dp"
+          android:autoSizeMaxTextSize="14sp"
+          android:autoSizeMinTextSize="10sp"
+          android:autoSizeTextType="uniform"
+          android:clickable="true"
+          android:onClick="onClickToLegal"
+          android:text="@string/register_opt_legalterms2"
+          android:textSize="12sp"
+          android:textStyle="bold"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/tvLegalTerms"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:ignore="TouchTargetSizeCheck" />
+
+      <ToggleButton
+          android:id="@+id/tbLegalTerms"
+          android:layout_width="56dp"
+          android:layout_height="25dp"
+          android:layout_marginEnd="35dp"
+          android:enabled="@{viewModel.enableTerms}"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          android:checked="@={viewModel.termsAccepted}"
+          tools:ignore="TouchTargetSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBiometric"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="@{viewModel.hasBiometric ? View.VISIBLE : View.GONE}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clLegalTerms">
+
+      <TextView
+          android:id="@+id/tvBiometric"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:autoSizeMaxTextSize="14sp"
+          android:autoSizeMinTextSize="10sp"
+          android:autoSizeTextType="uniform"
+          android:text="@string/register_opt_fingerprint"
+          android:textSize="12sp"
+          android:textStyle="bold"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+        <ToggleButton
+          android:id="@+id/tbBiometric"
+          android:layout_width="56dp"
+          android:layout_height="25dp"
+          android:layout_marginEnd="35dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          android:enabled="@{viewModel.hasBiometric}"
+          android:checked="@={viewModel.useBiometric}"
+          tools:ignore="TouchTargetSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

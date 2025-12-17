@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.inetum.eudi_dome_wallet.ui.home.fragments.presentations.PresentationsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="true"
+        android:paddingBottom="70dp"
+        android:paddingTop="24dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:onClick="@{(view)->viewModel.changeDrawerVisibility(view)}"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck">
+
+            <include
+                android:id="@+id/includeLayoutBackButton"
+                layout="@layout/layout_back_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView38"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo_svg" />
+
+        <ImageButton
+            android:id="@+id/iv_MyCred_CloseMenu"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="16dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_closing_x"
+            android:cropToPadding="false"
+            android:onClick="@{(view)->viewModel.changeDrawerVisibility(view)}"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView11"
+            app:tint="@color/primary_color_black" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:text="@string/profile_filters_title"
+            android:textColor="@color/primary_color_black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_filters_ordery_by"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llPresentationsEntity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="23dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/profile_filters_ordery_by_entity" />
+
+                <ImageView
+                    android:id="@+id/ivFilter_OrderEntity"
+                    android:layout_width="56dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="end"
+                    android:onClick="@{()->viewModel.pushRadioButton(0)}"
+                    android:src="@{viewModel.orderByEntity ? @drawable/icon_radiobutton_on_svg : @drawable/icon_radiobutton_off_svg}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="23dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/profile_filters_ordery_by_date" />
+
+                <ImageView
+                    android:id="@+id/ivFilter_OrderType"
+                    android:layout_width="56dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="end"
+                    android:onClick="@{()->viewModel.pushRadioButton(1)}"
+                    android:src="@{viewModel.orderByDate ? @drawable/icon_radiobutton_on_svg : @drawable/icon_radiobutton_off_svg}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPresentationsStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="23dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/profile_filters_ordery_by_status" />
+
+                <ImageView
+                    android:id="@+id/ivFilter_OrderStatus"
+                    android:layout_width="56dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="end"
+                    android:onClick="@{()->viewModel.pushRadioButton(2)}"
+                    android:src="@{viewModel.orderByStatus ? @drawable/icon_radiobutton_on_svg : @drawable/icon_radiobutton_off_svg}" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="12dp"
+                android:background="@color/complementary_color_3" />
+
+            <TextView
+                android:id="@+id/tvPresentationsShowHideStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/profile_filters_filter_title"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llPresentationsSent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="23dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/presentation_status_valid" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_FilterCred_Validated"
+                    android:layout_width="56dp"
+                    android:layout_height="25dp"
+                    android:checked="@={viewModel.validatedTypeEnabled}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPresentationsRequestedDeleted"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="23dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/presentation_status_ask_deletion" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_FilterCred_AskEntity"
+                    android:layout_width="56dp"
+                    android:layout_height="25dp"
+                    android:checked="@={viewModel.askDeletionTypeEnabled}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPresentationsDeleted"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="23dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/presentation_status_deletion_confirmation" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_FilterCred_BlockedByUser"
+                    android:layout_width="56dp"
+                    android:layout_height="25dp"
+                    android:checked="@={viewModel.deletedConfirmationTypeEnabled}" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

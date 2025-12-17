@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <application
+        android:name=".App"
+        android:allowBackup="false"
+        android:icon="@mipmap/icon_app_square"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/icon_app_square"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Eudiwallet"
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup">
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:theme="@style/Theme.Eudiwallet.Fullscreen">
+            <nav-graph android:value="@navigation/nav_graph" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+        <activity android:name="com.inetum.eudi_dome_wallet.ui.login.LoginActivity" />
+        <activity android:name="com.inetum.eudi_dome_wallet.ui.register.RegisterStep1Activity" />
+        <activity android:name="com.inetum.eudi_dome_wallet.ui.qrcapture.QrCaptureActivity" />
+        <activity
+            android:name="com.inetum.eudi_dome_wallet.ui.home.MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.inetum.eudi_dome_wallet.ui.qrcapture.CaptureActivityPortrait"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name="com.inetum.eudi_dome_wallet.ui.dataExchange.DataExchangeActivity" />
+        <activity
+            android:name="com.inetum.eudi_dome_wallet.ui.credentialDetails.CredentialDetailEudiActivity"
+            android:launchMode="singleTask" />
+        <activity android:name="com.inetum.eudi_dome_wallet.ui.onboarding.OnboardingActivity" />
+        <activity android:name="com.inetum.eudi_dome_wallet.ui.legalTerms.LegalTermsActivity" />
+        <activity
+            android:name="com.inetum.eudi_dome_wallet.ui.presentationDetails.PresentationDetailEudiActivity"
+            android:launchMode="singleTask" />
+        <activity android:name="com.inetum.eudi_dome_wallet.ui.register.RegisterStep2Activity" />
+        <activity
+            android:name="com.inetum.eudi_dome_wallet.ui.credentialMultivaluedDetail.CredentialMultivaluedDetailActivity"
+            android:launchMode="singleTask" />
+        <activity android:name="com.inetum.eudi_dome_wallet.ui.register.RegisterStep0Activity" />
+        <activity
+            android:name="com.inetum.eudi_dome_wallet.ui.infoKeys.InfoKeysActivity"
+            android:exported="false" />
+    </application>
+</manifest>

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+  <import type="android.view.View"/>
+  <variable
+      name="viewModel"
+      type="com.inetum.eudi_dome_wallet.ui.presentationDetails.PresentationDetailEudiViewModel" />
+</data>
+
+    <ScrollView
+        android:id="@+id/sv_PresentationDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/clHeader"
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivLogoApp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/clBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/clBack"
+            app:srcCompat="@drawable/logo_svg" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="16dp"
+            android:onClick="onClickBack"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck">
+
+          <include
+              android:id="@+id/includeLayoutBackButton"
+              layout="@layout/layout_back_button"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="23dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/clBack"
+            android:visibility="gone">
+
+          <ImageView
+              android:id="@+id/imageView6"
+              android:layout_width="20dp"
+              android:layout_height="20dp"
+              android:layout_marginEnd="6dp"
+              app:srcCompat="@drawable/icon_refesh" />
+
+          <TextView
+              android:id="@+id/textView14"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginLeft="4dp"
+              android:fontFamily="@font/blinker_bold"
+              android:text="@string/credential_detail_refresh"
+              android:textAllCaps="true"
+              android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvActivityFieldName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/presentation_detail_data"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/clBack"
+            app:layout_constraintTop_toBottomOf="@+id/clBack" />
+
+        <TextView
+            android:id="@+id/tvActivityFieldValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="0dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/blinker_bold"
+            android:maxLines="3"
+            android:text="@{viewModel.presentationActivityPretty}"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvActivityFieldName"
+            app:layout_constraintTop_toBottomOf="@+id/tvActivityFieldName"
+            tools:text="XXXX-4305" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="23dp"
+            android:background="@color/underline_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvActivityFieldValue" />
+
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/clHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/presentation_detail_serviceprovider"
+              android:textSize="12sp" />
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="5dp"
+              android:fontFamily="@font/blinker_bold"
+              android:text="NotData"
+              android:textSize="16sp"
+              tools:text="XXXX-4305" />
+
+          <FrameLayout
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_marginTop="15dp"
+              android:background="@color/underline_gray" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+          <LinearLayout
+              android:id="@+id/llDeliveryDate"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="0.5"
+              android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDeliveryDateFieldName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/presentation_detail_deliverydate"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvDeliveryDateFieldValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/blinker_bold"
+                android:text="@{viewModel.presentationIssueDatePretty}"
+                android:textSize="16sp"
+                tools:text="XXXX-4305" />
+          </LinearLayout>
+
+          <LinearLayout
+              android:visibility="gone"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="10dp"
+              android:layout_weight="0.5"
+              android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/credential_detail_date_active_data_until"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/blinker_bold"
+                android:textSize="16sp"
+                tools:text="XXXX-4305" />
+
+          </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/underline_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/presentation_detail_presentation_status"
+              android:textSize="12sp" />
+
+          <FrameLayout
+              android:id="@+id/frameLayout"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:background="@drawable/background_status"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+              tools:backgroundTint="@color/cred_status_validated">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="2dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="status" />
+
+          </FrameLayout>
+
+          <FrameLayout
+              android:layout_width="match_parent"
+              android:layout_height="1dp"
+              android:layout_marginTop="15dp"
+              android:background="@color/underline_gray" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickTerms"
+                android:text="@string/presentation_detail_terms_noentity"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="@string/presentation_detail_terms_noentity" />
+            <ImageView
+                android:id="@+id/imageView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:onClick="onClickTerms"
+                app:srcCompat="@drawable/ic_external_arrow" />
+          </LinearLayout>
+
+
+          <Button
+              android:id="@+id/buttonBlock"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_gravity="center"
+              android:layout_marginTop="16dp"
+              android:layout_weight="1"
+              android:onClick="onClickRevokePresentationStatus"
+              android:paddingStart="20dp"
+              android:paddingEnd="20dp"
+              android:text="@string/presentation_detail_list_unshare_button" />
+
+        </LinearLayout>
+
+      </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="23dp"
+            android:background="@color/underline_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/center" />
+
+      <FrameLayout
+          android:id="@+id/bottom"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="30dp"
+          android:layout_marginStart="23dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="23dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/separator">
+      </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>
+</layout>

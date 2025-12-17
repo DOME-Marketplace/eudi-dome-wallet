@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.dataExchange.DataExchangeActivity">
+
+  <data>
+    <import type="android.view.View"/>
+    <variable
+        name="viewModel"
+        type="com.inetum.eudi_dome_wallet.ui.dataExchange.DataExchangeViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/clMain"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/flContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
