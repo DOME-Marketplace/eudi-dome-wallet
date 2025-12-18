@@ -1,43 +1,68 @@
-<h1 align="center">EUDI-DOME-WALLET</h1>
-<p align="center">
-  <strong>By <a href="https://www.inetum.com/en" target="_blank">Inetum</a></strong>
-</p>
+# EUDI-DOME-WALLET
+**by [Inetum](https://www.inetum.com/en)**
 
-<h1 align="left">Introduction</h1>
-<p align="left">
-  Dome Wallet is an Android application that works for storing and presenting your credentials
-</p>
+---
 
-<h1 align="left">Architecture</h1>
-<p align="left">
-  The project is structured in a Kotlin language and with an MVVM architecture
-</p>
+## Introduction
 
-<h1 align="left">Main Features</h1>
-<ul>
-  <li><strong>Credential Lifecycle Management:</strong> Support for receiving, storing, and organizing W3C Verifiable Credentials (VC).</li>
-  <li><strong>Protocol Support:</strong> Support latest versions of OIDC4VCI and OID4VP protocols adapted to DOME requirements.</li>
-  <li><strong>Blockchain Interoperability:</strong> Integration with DOME Backend Identity system for real-time validity checks.</li>
-  <li><strong>Biometric Authentication:</strong> Fingerprint support for secure access.</li>
-  <li><strong>Master Password Key Derivation:</strong> Secure vault encryption using the app's primary password to derive the Keystore access keys.</li>
-  <li><strong>Key Generation:</strong> Create key pairs using the secp256r1 / P-256 algorithm for secure identity operations.</li>
-  <li><strong>Database Persistence:</strong> Local storage powered by Room for efficient and secure data management on Android.</li>
-</ul>
+EUDI DOME Wallet is an Android application designed for secure storage and presentation of digital credentials in the EUDI-DOME environment. Built with modern Android architecture patterns, it provides an android native solution for managing W3C Verifiable Credentials such as LearCredentialEmployee with ease of use and security.
+
+## Architecture
+
+The application is based on the following architecture:
+- **Language:** Kotlin
+- **Architecture Pattern:** MVVM (Model-View-ViewModel)
+- **Database:** Room for local persistence
+- **Security:** Android Keystore with biometric authentication
+- **Cryptography:** secp256r1 / P-256 algorithm
+
+## Main Features
+
+* **Credential Lifecycle Management:** Support for receiving, storing, and organizing W3C Verifiable Credentials (VC).
+* **Protocol Support:** Implementation of the latest OIDC4VCI and OID4VP protocols adapted to DOME requirements.
+* **Blockchain Interoperability:** Integration with DOME Backend Identity system for real-time validity checks.
+* **Biometric Authentication:** Fingerprint support for secure access.
+* **Master Password Key Derivation:** Secure vault encryption using password-derived Keystore access keys.
+* **Key Generation:** Create key pairs using the secp256r1 / P-256 algorithm for secure identity operations.
+* **Database Persistence:** Local storage powered by Room for efficient and secure data management on Android.
+
+## Getting Started
+
+This application is developed, built and tested in Android Studio.
+
+### Prerequisites
+* Android Studio (latest stable version recommended)
+* Android SDK 24 or higher
+* JDK 11 or higher
+
+### Installation
+
+1. Clone the repository: `git clone https://github.com/DOME-Marketplace/eudi-dome-wallet.git`
+2. Open the project in Android Studio
+3. Sync Gradle dependencies: `File > Sync Project with Gradle Files`
+4. Connect an Android device or start an emulator
+5. Run the project: Click "Run" button or press `Shift + F10`
+
+## Build and Test
+
+We have different build variants depending on the environment:
+
+* `debug` variant: This variant is used for development. It uses debug signing and includes debugging tools.
+* `release` variant: This variant is used for production. It requires proper signing configuration and code obfuscation.
+
+### Building APK
+
+1. Build the project: `Build > Make Project` or `Ctrl+F9`
+2. Switch to desired variant: Open `Build Variants` panel and select variant
+3. Generate APK: Navigate to `Build > Build Bundle(s) / APK(s) > Build APK(s)`
+4. For signed APK: `Build > Generate Signed Bundle / APK` and follow the wizard
+
+## Resources
+
+* **Kotlin Style Guide:** [Android Kotlin Style Guide](https://developer.android.com/kotlin/style-guide)
+* **DOME Documentation:** [DOME Knowledge Base](https://knowledgebase.dome-marketplace.eu/)
 
 
-<h1 align="left">Getting Started</h1>
-<p> 1.Clone the repository: git clone https://github.com/in2workspace/in2-wallet-wda.git](https://github.com/DOME-Marketplace/eudi-dome-wallet.git</p>
-<p> 2.Build Gradle</p>
-<p> 3.Run Project</p>
+## License
 
-<h1 align="left">Build Apk</h1>
-<p> 1.Build Gradle</p>
-<p> 2.Build Variants</p>
-<p> 3.Switch from debug to release</p>
-<p> 4.At the top of Android Studio there is a build section</p>
-<p> 5.Generate App Bundles or Apks</p>
-<p> 6.Generate Apks</p>
-
-<h1 align="left">Contribute</h1>
-
-<h1 align="left">Documentation</h1>
+This project is licensed under the Apache 2.0 License — see the [LICENSE](LICENSE) file for details.
