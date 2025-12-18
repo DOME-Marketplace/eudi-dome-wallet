@@ -30,6 +30,13 @@
 <p> 2.Build Gradle</p>
 <p> 3.Run Project</p>
 
+<h1 align="left">Build Apk</h1>
+<p> 1.Build Gradle</p>
+<p> 2.Build Variants</p>
+<p> 3.Switch from debug to release</p>
+<p> 4.At the top of Android Studio there is a build section</p>
+<p> 5.Generate App Bundles or Apks</p>
+<p> 6.Generate Apks</p>
 
 <h1 align="left">Contribute</h1>
 
